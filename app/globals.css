@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F8F9FA;
+  --foreground: #2F3E46;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A1B26;
+    --foreground: #F8F9FA;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom utility classes */
+@layer components {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary/10 to-accent/10;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-neutral-dark rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-white dark:bg-neutral-dark hover:bg-slate-50 dark:hover:bg-neutral-darker text-primary dark:text-primary-light border-2 border-primary dark:border-primary-light rounded-lg transition-all duration-300;
+  }
+}
+
+/* Hide scrollbar styles */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth animations */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
